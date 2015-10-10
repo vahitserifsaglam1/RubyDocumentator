@@ -32,7 +32,7 @@ class Documentator
     output = parsed.include?('output_path') ? parsed['output_path'] : 'docs'
     @output_path = self.prepare_output_path (output)
     @aliases = parsed.include?('aliases') ? parsed['aliases'] : []
-    @page_options = parsed.include?('page_options') ? parsed['page_options']: []
+    @page_options = parsed.include?('page_options') ? parsed['page_options'] : []
 
   end
 
@@ -89,17 +89,10 @@ class Documentator
 
   # start to parse files
   def start_parsing
-
-
-
-      begin
-        if @finded_files.length < 1
-
-      end
-
-    end
-
+    raise Exception, 'You must have a file to parse' if @finded_files.length < 1
   end
 end
 
 documantator = Documentator.new
+
+documantator.start_parsing
