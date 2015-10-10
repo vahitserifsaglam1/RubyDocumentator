@@ -1,4 +1,3 @@
-require 'parser/line_parser'
 class Parser
 
   attr_accessor :name_without_extension, :page_options, :path, :aliases
