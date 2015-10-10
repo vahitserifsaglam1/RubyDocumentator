@@ -68,7 +68,3 @@ class Documentator
 
 end
 
-
-documantation = Documentator.new('..', ['md'])
-
-p documantation
