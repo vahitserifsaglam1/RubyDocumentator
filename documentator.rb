@@ -99,7 +99,6 @@ class Documentator
       parser = Parser.new(name_without_extension, @page_options, file, aliases)
       parsed[aliases] = parser.parse
     end
-
   end
 end
 
