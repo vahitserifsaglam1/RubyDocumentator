@@ -17,8 +17,9 @@ class Documentator
   end
 
   def prepare_class_for_build parsed
+
     @path = prepare_path parsed.include?('input_path') ? parsed['input_path'] : '.'
-    @extensions = extensions.include?('extensions') ? self.prepare_extensions(parsed['extensions']) : ['.md']
+    @extensions = parsed.include?('extensions') ? self.prepare_extensions(parsed['extensions']) : ['.md']
     @finded_files = self.find_files
     @theme = parsed.include?('theme') ? parsed['theme'] : 'default'
     output = parsed.include?('output_path') ? parsed['output_path'] : 'docs'
