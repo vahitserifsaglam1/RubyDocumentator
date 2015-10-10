@@ -12,7 +12,7 @@ class Parser
     @path = path
   end
 
-  #parse your content
+  #parse the file content
   def parse
 
   end
