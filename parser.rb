@@ -2,6 +2,7 @@ require_relative 'parser/line_parser'
 class Parser
 
   attr_accessor :name_without_extension, :page_options, :path, :aliases
+  attr_reader :parsed
 
   # create a new parser instance and register instance variables
   # @param [String] name
@@ -12,13 +13,16 @@ class Parser
     @page_options = page_options
     @path = path
     @aliases = aliases
+    @parsed = []
   end
 
   #parse the file content
   def parse
+
     File.readlines(@path) do |line|
       line_parser = LineParser.new(line)
-      line_parser.parse_line()
+      parsed_new = line_parser.parse_line()
+      parsed.push(parsed_new)
     end
   end
 end
