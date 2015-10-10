@@ -86,6 +86,12 @@ class Documentator
     end
     return files
   end
+
+  # start to parse files
+  def start_parsing
+
+
+  end
 end
 
 documantator = Documentator.new
