@@ -1,4 +1,5 @@
 require 'json'
+require 'parser'
 
 # class Documentator
 # create your own documantation files.
@@ -90,6 +91,8 @@ class Documentator
   # start to parse files
   def start_parsing
     raise Exception, 'You must have a file to parse' if @finded_files.length < 1
+
+
   end
 end
 
