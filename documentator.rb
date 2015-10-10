@@ -91,6 +91,14 @@ class Documentator
   def start_parsing
 
 
+
+      begin
+        if @finded_files.length < 1
+
+      end
+
+    end
+
   end
 end
 
