@@ -18,6 +18,7 @@ class Parser
   def parse
     File.readlines(@path) do |line|
       line_parser = LineParser.new(line)
+      line_parser.parse_line()
     end
   end
 end

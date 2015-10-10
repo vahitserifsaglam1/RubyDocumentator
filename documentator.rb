@@ -91,7 +91,8 @@ class Documentator
   # start to parse files
   def start_parsing
     raise Exception, 'You must have a file to parse' if @finded_files.length < 1
-    parsed = []
+    parsed = {}
+
     @finded_files.each do |file, index|
       name_without_extension = File.basename(file, '.*')
       name_with_extension = File.basename file
@@ -103,4 +104,7 @@ class Documentator
 end
 
 documantator = Documentator.new
+
+
+documantator.start_parsing
 

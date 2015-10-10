@@ -6,6 +6,10 @@ class LineParser
   # @param [String] content
   def initialize content
     @content = content
+  end
+
+  # parse the content and create html content
+  def parse_line
 
   end
 
