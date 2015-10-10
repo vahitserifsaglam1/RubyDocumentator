@@ -16,14 +16,14 @@ class Documentator
     contents = File.read("config.json")
     parsed = JSON.parse(contents)
 
-    prepare_class_variables_for_build parsed
+    prepare_class_for_build parsed
 
   end
 
 
   # prepare your instance variables for building your documantation
   # @param [Array] parsed
-  def prepare_class_variables_for_build parsed
+  def prepare_class_for_build parsed
 
     @path = prepare_path parsed.include?('input_path') ? parsed['input_path'] : '.'
     @extensions = parsed.include?('extensions') ? self.prepare_extensions(parsed['extensions']) : ['.md']
