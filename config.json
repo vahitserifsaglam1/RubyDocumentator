@@ -2,5 +2,8 @@
   "theme": "default",
   "input_path": "..",
   "output_path" : "created_docs",
-  "extensions":["md"]
+  "extensions":["md"],
+  "aliases" : {
+
+  }
 }

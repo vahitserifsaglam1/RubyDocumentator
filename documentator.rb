@@ -5,7 +5,7 @@ require 'json'
 # you should change config.json file
 class Documentator
 
-  attr_accessor :path, :extensions, :theme, :output_path
+  attr_accessor :path, :extensions, :theme, :output_path, :aliases
   attr_reader :finded_files
 
 
@@ -16,11 +16,12 @@ class Documentator
     contents = File.read("config.json")
     parsed = JSON.parse(contents)
 
-    prepare_class_for_build(parsed)
+    prepare_class_variables_for_build parsed
 
   end
 
-  def prepare_class_for_build parsed
+  # prepare your instance variables for building your documantation
+  def prepare_class_variables_for_build parsed
 
     @path = prepare_path parsed.include?('input_path') ? parsed['input_path'] : '.'
     @extensions = parsed.include?('extensions') ? self.prepare_extensions(parsed['extensions']) : ['.md']
@@ -28,6 +29,7 @@ class Documentator
     @theme = parsed.include?('theme') ? parsed['theme'] : 'default'
     output = parsed.include?('output_path') ? parsed['output_path'] : 'docs'
     @output_path = self.prepare_output_path (output)
+    @aliases = parsed.include?('aliases') ? parsed['aliases'] : []
 
   end
 
