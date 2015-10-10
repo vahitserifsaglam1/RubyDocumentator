@@ -1,4 +1,8 @@
 require 'json'
+
+# class Documentator
+# create your own documantation files.
+# you should change config.json file
 class Documentator
 
   attr_accessor :path, :extensions, :theme, :output_path
