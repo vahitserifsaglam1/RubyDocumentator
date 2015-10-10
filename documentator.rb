@@ -1,5 +1,5 @@
 require 'json'
-require 'parser'
+require_relative 'parser'
 
 # class Documentator
 # create your own documantation files.
@@ -96,6 +96,7 @@ class Documentator
 
     @finded_files.each do |file, index|
       name_without_extension = File.basename(file, '.*')
+      name_with_extension = File.basename file
       parser = Parser.new(name_without_extension, @page_options, file)
       parsed[index] = parser.parse
     end
@@ -105,4 +106,3 @@ end
 
 documantator = Documentator.new
 
-documantator.start_parsing
