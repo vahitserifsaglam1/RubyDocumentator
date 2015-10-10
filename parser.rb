@@ -19,9 +19,8 @@ class Parser
   #parse the file content
   def parse
 
-    File.readlines(@path) do |line|
-      line_parser = LineParser.new(line)
-      parsed_new = line_parser.parse_line()
+    File.readlines(@path).each do |line|
+      parsed_new = LineParser.parse_line(line)
       parsed.push(parsed_new)
     end
   end

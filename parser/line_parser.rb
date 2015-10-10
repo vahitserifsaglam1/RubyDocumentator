@@ -1,16 +1,12 @@
 class LineParser
+  class << self
+    attr_accessor :content
+    @@charecters = %w{# >}
+    @@regex = %w{}
+    # parse the content and create html content
+    # @param [String] content
+    def parse_line content
 
-  attr_accessor :content
-
-  # create a new instance and register instance variables
-  # @param [String] content
-  def initialize content
-    @content = content
+    end
   end
-
-  # parse the content and create html content
-  def parse_line
-
-  end
-
 end
