@@ -97,7 +97,10 @@ class Documentator
     @finded_files.each do |file, index|
       name_without_extension = File.basename(file, '.*')
       name_with_extension = File.basename file
-      parser = Parser.new(name_without_extension, @page_options, file)
+
+      aliases = @aliases.include?(name_with_extension) ? @aliases[name_with_extension] : nil
+
+      parser = Parser.new(name_without_extension, @page_options, file, aliases)
       parsed[index] = parser.parse
     end
 
