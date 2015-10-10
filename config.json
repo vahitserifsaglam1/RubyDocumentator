@@ -5,5 +5,11 @@
   "extensions":["md"],
   "aliases" : {
 
+  },
+
+  "page_options": {
+    "description" : "",
+    "keywords" : [],
+    "author": ""
   }
 }
