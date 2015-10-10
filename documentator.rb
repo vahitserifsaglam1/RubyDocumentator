@@ -26,6 +26,7 @@ class Documentator
 
   end
 
+  # if output directory is not exists create it.
   def prepare_output_path output_path
     unless File.exists?(output_path)
       Dir.mkdir(output_path)
