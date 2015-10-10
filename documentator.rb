@@ -1,15 +1,37 @@
+require 'json'
 class Documentator
 
-  attr_accessor :path, :extensions, :theme
+  attr_accessor :path, :extensions, :theme, :output_path
   attr_reader :finded_files
+
 
   # create a new instance and register path
   # find documantation files and register it
-  def initialize (path, extensions = nil, theme = 'default')
-    @path = prepare_path path
-    @extensions = extensions.nil? ? ['.md'] : self.prepare_extensions(extensions)
+  def initialize ()
+
+    contents = File.read("config.json")
+    parsed = JSON.parse(contents)
+
+    prepare_class_for_build(parsed)
+
+  end
+
+  def prepare_class_for_build parsed
+    @path = prepare_path parsed.include?('input_path') ? parsed['input_path'] : '.'
+    @extensions = extensions.include?('extensions') ? self.prepare_extensions(parsed['extensions']) : ['.md']
     @finded_files = self.find_files
-    @theme = theme
+    @theme = parsed.include?('theme') ? parsed['theme'] : 'default'
+    output = parsed.include?('output_path') ? parsed['output_path'] : 'docs'
+    @output_path = self.prepare_output_path (output)
+
+  end
+
+  def prepare_output_path output_path
+    unless File.exists?(output_path)
+      Dir.mkdir(output_path)
+    end
+
+    output_path
   end
 
   # make your path useable
@@ -68,3 +90,6 @@ class Documentator
 
 end
 
+documantator = Documentator.new
+
+p documantator
