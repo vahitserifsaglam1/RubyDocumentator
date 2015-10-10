@@ -20,6 +20,7 @@ class Documentator
 
   end
 
+
   # prepare your instance variables for building your documantation
   # @param [Array] parsed
   def prepare_class_variables_for_build parsed
