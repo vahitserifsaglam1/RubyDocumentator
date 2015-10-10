@@ -6,7 +6,7 @@ require 'json'
 class Documentator
 
   attr_accessor :path, :extensions, :theme, :output_path, :aliases
-  attr_reader :finded_files
+  attr_reader :finded_files, :page_options
 
 
   # create a new instance and register path
@@ -32,6 +32,7 @@ class Documentator
     output = parsed.include?('output_path') ? parsed['output_path'] : 'docs'
     @output_path = self.prepare_output_path (output)
     @aliases = parsed.include?('aliases') ? parsed['aliases'] : []
+    @page_options = parsed.include?('page_options') ? parsed['page_options']: []
 
   end
 
