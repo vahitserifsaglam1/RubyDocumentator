@@ -40,18 +40,15 @@ class Documentator
     unless File.exists?(output_path)
       Dir.mkdir(output_path)
     end
-
     output_path
   end
 
   # make your path useable
   # @param [String] path
   def prepare_path path
-
     if path.end_with?('/')
       path = path[0, path.length-1]
     end
-
     return path
   end
 
@@ -63,42 +60,31 @@ class Documentator
     exts = []
 
     extensions.each_with_index do |extension, index|
-
       if !extension.start_with?('.')
         add = '.'+extension
-
         exts[index] = add
       else
         exts[index] = extension
       end
     end
-
     return exts
   end
 
   # find files with registered extension and path and return response
   def find_files
-
     paths = []
     files = []
-
     @extensions.each_with_index do |extension, index|
       paths[index] = "#{@path}/*#{extension}"
     end
-
     paths.each_with_index do |path, index|
       finded = Dir[path]
-
       if finded.length > 0
         files[index] = finded
       end
-
     end
-
     return files
   end
-
-
 end
 
 documantator = Documentator.new
