@@ -16,8 +16,6 @@ class Parser
 
   #parse the file content
   def parse
-    File.readlines do |line|
-      line_parser = LineParser.new(line)
-    end
+
   end
 end
