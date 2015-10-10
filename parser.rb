@@ -10,4 +10,8 @@ class Parser
     @path = path
   end
 
+  #parse your content
+  def parse
+
+  end
 end
