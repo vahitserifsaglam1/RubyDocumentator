@@ -11,7 +11,6 @@ class LineParser
 
       @@charecters.each do |charecter|
 
-        finded =  self.find_and_replace_charecter(charecter)
 
 
       end
