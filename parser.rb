@@ -1,3 +1,4 @@
+require 'parser/line_parser'
 class Parser
 
   attr_accessor :name_without_extension, :page_options, :path, :aliases
@@ -16,7 +17,7 @@ class Parser
   #parse the file content
   def parse
     File.readlines do |line|
-
+      line_parser = LineParser.new(line)
     end
   end
 end
