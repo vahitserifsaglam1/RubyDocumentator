@@ -89,5 +89,3 @@ class Documentator
 end
 
 documantator = Documentator.new
-
-p documantator
