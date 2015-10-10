@@ -15,7 +15,8 @@ class Parser
 
   #parse the file content
   def parse
+    File.readlines do |line|
 
-
+    end
   end
 end
