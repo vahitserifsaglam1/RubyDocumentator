@@ -11,8 +11,6 @@ class LineParser
 
       @@charecters.each do |charecter|
 
-
-
       end
     end
 
